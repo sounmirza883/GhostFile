@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { DropZone } from './components/DropZone'
 import { PasswordInput } from './components/PasswordInput'
 import { ModeToggle } from './components/ModeToggle'
@@ -228,6 +229,7 @@ export default function App() {
       </footer>
 
       {showHowItWorks && <HowItWorks onClose={() => setShowHowItWorks(false)} />}
+      <Analytics />
     </div>
   )
 }
