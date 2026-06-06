@@ -4,6 +4,8 @@ import { PasswordInput } from './components/PasswordInput'
 import { ModeToggle } from './components/ModeToggle'
 import { ProgressBar } from './components/ProgressBar'
 import { HowItWorks } from './components/HowItWorks'
+import { AdSlot } from './components/AdSlot'
+import { NativeBanner } from './components/NativeBanner'
 import { useCryptoWorker } from './hooks/useCryptoWorker'
 import { saveFile } from './lib/output'
 
@@ -65,6 +67,16 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-ghost-50 flex flex-col">
+      {/* Top ad strip */}
+      <div className="w-full flex justify-center bg-white/40 border-b border-gray-100 py-2">
+        <div className="hidden md:block">
+          <AdSlot adKey="5c6b831e71357ce8f8d408328e05bbc4" width={728} height={90} />
+        </div>
+        <div className="md:hidden">
+          <AdSlot adKey="071d6fd0f72e8a723b59cd8c1279b9c6" width={320} height={50} />
+        </div>
+      </div>
+
       {/* Header */}
       <header className="py-6 px-6 flex justify-between items-center max-w-3xl mx-auto w-full">
         <div className="flex items-center gap-2">
@@ -79,8 +91,13 @@ export default function App() {
         </button>
       </header>
 
-      {/* Main card */}
-      <main className="flex-1 flex items-start justify-center px-4 pt-4 pb-12">
+      {/* Main card + sidebar ads */}
+      <main className="flex-1 flex flex-col lg:flex-row items-start justify-center gap-6 px-4 pt-4 pb-12 max-w-6xl mx-auto w-full">
+        {/* Left sidebar ad (desktop only) */}
+        <aside className="hidden lg:flex flex-col gap-4 sticky top-4">
+          <AdSlot adKey="0182895d96969569830ae63b07a54c90" width={160} height={600} />
+        </aside>
+
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 w-full max-w-xl p-8 space-y-6">
           {/* Title */}
           <div className="text-center">
@@ -212,11 +229,32 @@ export default function App() {
             </div>
           )}
         </div>
+
+        {/* Right sidebar ads (desktop only) */}
+        <aside className="hidden lg:flex flex-col gap-4 sticky top-4">
+          <AdSlot adKey="ab6f10cf6828bfcf9b6e9d42f14659b6" width={300} height={250} />
+          <AdSlot adKey="69872d950ee208c63948989f594cd8a5" width={160} height={300} />
+        </aside>
       </main>
+
+      {/* Below-the-fold ad row */}
+      <section className="w-full px-4 pb-8 max-w-3xl mx-auto space-y-6">
+        <div className="flex justify-center">
+          <NativeBanner />
+        </div>
+        <div className="flex flex-wrap justify-center gap-4">
+          <AdSlot adKey="d1e471e64be43175bc8195133150276b" width={468} height={60} />
+        </div>
+        {/* Mobile-only stacked ads */}
+        <div className="flex lg:hidden flex-col items-center gap-4">
+          <AdSlot adKey="ab6f10cf6828bfcf9b6e9d42f14659b6" width={300} height={250} />
+          <AdSlot adKey="69872d950ee208c63948989f594cd8a5" width={160} height={300} />
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="py-4 text-center text-xs text-gray-400 space-y-1">
-        <p>Zero network requests after first load • No telemetry • No accounts</p>
+        <p>Client-side encryption • Crypto runs entirely in your browser</p>
         <p>
           <button
             onClick={() => setShowHowItWorks(true)}
