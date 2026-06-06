@@ -68,12 +68,14 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-ghost-50 flex flex-col">
       {/* Top ad strip */}
-      <div className="w-full flex justify-center bg-white/40 border-b border-gray-100 py-2">
-        <div className="hidden md:block">
+      <div className="w-full flex flex-col items-center bg-white/40 border-b border-gray-100 py-2 gap-2">
+        <div className="hidden md:flex gap-2 flex-wrap justify-center">
           <AdSlot adKey="5c6b831e71357ce8f8d408328e05bbc4" width={728} height={90} />
+          <AdSlot adKey="babb61484a980b7d862fe38584b11bee" width={728} height={90} />
         </div>
-        <div className="md:hidden">
+        <div className="md:hidden flex flex-col gap-2 items-center">
           <AdSlot adKey="071d6fd0f72e8a723b59cd8c1279b9c6" width={320} height={50} />
+          <AdSlot adKey="0fdaa61ecd6191339f79ffe7eaba87fc" width={320} height={50} />
         </div>
       </div>
 
@@ -93,9 +95,10 @@ export default function App() {
 
       {/* Main card + sidebar ads */}
       <main className="flex-1 flex flex-col lg:flex-row items-start justify-center gap-6 px-4 pt-4 pb-12 max-w-6xl mx-auto w-full">
-        {/* Left sidebar ad (desktop only) */}
+        {/* Left sidebar ads (desktop only) */}
         <aside className="hidden lg:flex flex-col gap-4 sticky top-4">
           <AdSlot adKey="0182895d96969569830ae63b07a54c90" width={160} height={600} />
+          <AdSlot adKey="85acf5fba6e57725c4801066af218437" width={160} height={600} />
         </aside>
 
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 w-full max-w-xl p-8 space-y-6">
@@ -233,6 +236,7 @@ export default function App() {
         {/* Right sidebar ads (desktop only) */}
         <aside className="hidden lg:flex flex-col gap-4 sticky top-4">
           <AdSlot adKey="ab6f10cf6828bfcf9b6e9d42f14659b6" width={300} height={250} />
+          <AdSlot adKey="76d6bfc563a260bfb93875c6e1fd4758" width={300} height={250} />
           <AdSlot adKey="69872d950ee208c63948989f594cd8a5" width={160} height={300} />
         </aside>
       </main>
@@ -240,14 +244,25 @@ export default function App() {
       {/* Below-the-fold ad row */}
       <section className="w-full px-4 pb-8 max-w-3xl mx-auto space-y-6">
         <div className="flex justify-center">
-          <NativeBanner />
+          <NativeBanner
+            scriptSrc="https://pl29656693.effectivecpmnetwork.com/a7be003de40c41c043a544a3930a069c/invoke.js"
+            containerId="container-a7be003de40c41c043a544a3930a069c"
+          />
+        </div>
+        <div className="flex justify-center">
+          <NativeBanner
+            scriptSrc="https://outrightphiladelphia.com/26ede33c3e293e814e8c3df1c4b81cf4/invoke.js"
+            containerId="container-26ede33c3e293e814e8c3df1c4b81cf4"
+          />
         </div>
         <div className="flex flex-wrap justify-center gap-4">
           <AdSlot adKey="d1e471e64be43175bc8195133150276b" width={468} height={60} />
+          <AdSlot adKey="726c0d8986ea5693e10d4a8a62f783b4" width={468} height={60} />
         </div>
         {/* Mobile-only stacked ads */}
         <div className="flex lg:hidden flex-col items-center gap-4">
           <AdSlot adKey="ab6f10cf6828bfcf9b6e9d42f14659b6" width={300} height={250} />
+          <AdSlot adKey="76d6bfc563a260bfb93875c6e1fd4758" width={300} height={250} />
           <AdSlot adKey="69872d950ee208c63948989f594cd8a5" width={160} height={300} />
         </div>
       </section>
@@ -262,6 +277,15 @@ export default function App() {
           >
             How it works
           </button>
+          {' • '}
+          <a
+            href="https://outrightphiladelphia.com/qp8amu9n?key=d2d9b2992e57004ba763decf0c039b25"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-gray-600"
+          >
+            Sponsor
+          </a>
         </p>
       </footer>
 
